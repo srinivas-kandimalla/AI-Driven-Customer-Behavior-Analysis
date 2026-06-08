@@ -29,7 +29,7 @@ This platform solves that by leveraging **statistical analysis**, **machine lear
 ## 🖥️ Live Dashboard
 
 | Page                       | Features                                                                        |
-+| -------------------------- | ------------------------------------------------------------------------------- |
+| -------------------------- | ------------------------------------------------------------------------------- |
 | 📊 **Dashboard Overview**  | KPI cards, monthly revenue trend, segment breakdown, top 20 churn risk table    |
 | 👥 **Customer Segments**   | K-Means cluster analysis, avg order value by segment, searchable customer table |
 | 🎯 **Predict & Recommend** | Purchase likelihood engine, SVD collaborative filtering recommendations         |
@@ -345,7 +345,4 @@ joblib==1.5.3
 python-dotenv==1.0.0
 ```
 
----
 
-## 📄 License
-MIT License
