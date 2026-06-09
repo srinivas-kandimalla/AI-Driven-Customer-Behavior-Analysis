@@ -28,7 +28,7 @@ This platform solves that by leveraging **statistical analysis**, **machine lear
 
 ## 🚀 Live Demo
 
-🔗 https://ai-driven-customer-behavior-analysis.onrender.com/
+🔗🔗 [Open Live Demo](https://ai-driven-customer-behavior-analysis.onrender.com/)
 
 ### Demo Features
 
