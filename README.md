@@ -26,6 +26,20 @@ This platform solves that by leveraging **statistical analysis**, **machine lear
 
 ---
 
+## 🚀 Live Demo
+
+🔗 https://ai-driven-customer-behavior-analysis.onrender.com/
+
+### Demo Features
+
+- Dashboard Overview
+- Customer Segmentation Analysis
+- Purchase Prediction
+- Product Recommendation Engine
+- Churn Risk Detection
+
+---
+
 ## 🖥️ Live Dashboard
 
 | Page                       | Features                                                                        |
@@ -128,6 +142,7 @@ AI-Driven-Customer-Behavior-Analysis/
 ## ⚙️ Installation & Setup
 
 ### 1️⃣ Clone the repository
+
 ```bash
 git clone https://github.com/yourusername/AI-Driven-Customer-Behavior-Analysis.git
 cd AI-Driven-Customer-Behavior-Analysis
@@ -136,18 +151,21 @@ cd AI-Driven-Customer-Behavior-Analysis
 ### 2️⃣ Create and activate virtual environment
 
 **Windows:**
+
 ```powershell
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 ```
 
 **Mac / Linux:**
+
 ```bash
 python -m venv .venv
 source .venv/bin/activate
 ```
 
 ### 3️⃣ Install all dependencies
+
 ```bash
 pip install -r requirements.txt
 ```
@@ -161,12 +179,14 @@ python run.py
 ```
 
 The `run.py` script will automatically:
+
 1. 📊 Generate synthetic customer dataset if missing
 2. 🤖 Train all 4 ML models if not already saved
 3. 🗄️ Initialize SQLite database
 4. 🌐 Start the Flask development server
 
 Then open your browser at:
+
 ```
 http://127.0.0.1:5000
 ```
@@ -187,6 +207,7 @@ http://127.0.0.1:5000
 | `GET`  | `/api/dashboard/stats`  | Aggregated KPIs and stats for dashboard    |
 
 ### 📥 Purchase Prediction — Request
+
 ```json
 POST /api/predict/purchase
 {
@@ -199,6 +220,7 @@ POST /api/predict/purchase
 ```
 
 ### 📤 Purchase Prediction — Response
+
 ```json
 {
   "status": "success",
@@ -211,6 +233,7 @@ POST /api/predict/purchase
 ```
 
 ### 📤 Product Recommendations — Response
+
 ```json
 {
   "status": "success",
@@ -225,12 +248,12 @@ POST /api/predict/purchase
 
 ## 🤖 ML Models Summary
 
-| Model                   | Algorithm                    | Target              | Metric                        |
-| ----------------------- | ---------------------------- | ------------------- | ----------------------------- |
-| **Segmentation**        | K-Means (K=5)                | Customer clusters   | Elbow curve, Centroid profiles|
-| **Purchase Prediction** | Random Forest + GridSearchCV | Will purchase (0/1) | Accuracy, F1-score            |
-| **Churn Prediction**    | XGBoost + SMOTE              | Churn label (0/1)   | ROC-AUC, Confusion matrix     |
-| **Recommendation**      | SVD Collaborative Filtering  | Product category    | Rating estimation             |
+| Model                   | Algorithm                    | Target              | Metric                         |
+| ----------------------- | ---------------------------- | ------------------- | ------------------------------ |
+| **Segmentation**        | K-Means (K=5)                | Customer clusters   | Elbow curve, Centroid profiles |
+| **Purchase Prediction** | Random Forest + GridSearchCV | Will purchase (0/1) | Accuracy, F1-score             |
+| **Churn Prediction**    | XGBoost + SMOTE              | Churn label (0/1)   | ROC-AUC, Confusion matrix      |
+| **Recommendation**      | SVD Collaborative Filtering  | Product category    | Rating estimation              |
 
 ---
 
@@ -251,6 +274,7 @@ POST /api/predict/purchase
 Below are the actual performance metrics and training logs generated from running the model training pipeline (`python -m ml.model_trainer`):
 
 ### 1. Customer Segmentation (K-Means Clustering)
+
 - **Features**: `annual_income`, `spending_score`, `purchase_frequency`
 - **Resulting Segment Centroids (Profiles)**:
   - 🟣 **Premium**: Income ≈ $119,338, Spending Score ≈ 79.91, Purchase Frequency ≈ 36.34/yr
@@ -260,12 +284,14 @@ Below are the actual performance metrics and training logs generated from runnin
   - 🔴 **Dormant**: Income ≈ $56,602, Spending Score ≈ 15.92, Purchase Frequency ≈ 9.32/yr
 
 ### 2. Purchase Propensity Model (Random Forest)
+
 - **Features**: `age`, `annual_income`, `spending_score`, `loyalty_years`, `average_order_value`
 - **Tuned Hyperparameters**: `{'max_depth': 5, 'min_samples_split': 5, 'n_estimators': 50}`
 - **Classification Performance**:
   - Accuracy: **86%**
   - F1-Score: **0.87**
   - Details:
+
     ```text
                   precision    recall  f1-score   support
 
@@ -278,6 +304,7 @@ Below are the actual performance metrics and training logs generated from runnin
     ```
 
 ### 3. Churn Prediction Model (XGBoost + SMOTE)
+
 - **Features**: All numerical customer behavior features (9 columns)
 - **Imbalance Handling**: SMOTE applied (original train count `[562, 238]`, balanced to `[562, 562]`)
 - **Metrics**:
@@ -288,6 +315,7 @@ Below are the actual performance metrics and training logs generated from runnin
      [ 22  38]]
     ```
   - Details:
+
     ```text
                   precision    recall  f1-score   support
 
@@ -300,6 +328,7 @@ Below are the actual performance metrics and training logs generated from runnin
     ```
 
 ### 4. Collaborative Product Recommendation (SVD)
+
 - **Algorithm**: SVD Collaborative Filtering fitted using ratings database (`customer_id`, `product_category`, `customer_rating`).
 - **Sample Recommendation Output (Customer C001)**:
   `['Fashion', 'Food', 'Beauty', 'Electronics', 'Sports']`
@@ -309,6 +338,7 @@ Below are the actual performance metrics and training logs generated from runnin
 ## 🧪 Running Tests
 
 To execute the unit tests verifying model pipelines and API endpoints:
+
 ```bash
 python -m unittest discover -s tests
 ```
@@ -318,12 +348,15 @@ python -m unittest discover -s tests
 ## 📸 Dashboard Screenshots
 
 ### 📊 Dashboard Overview
+
 ![Dashboard Overview](screenshots/dashboard.png)
 
 ### 👥 Customer Segments Analysis
+
 ![Customer Segments Analysis](screenshots/segments.png)
 
 ### 🎯 Propensity & Recommendations Center
+
 ![Propensity & Recommendations Center](screenshots/predict.png)
 
 ---
@@ -344,5 +377,3 @@ seaborn==0.12.2
 joblib==1.5.3
 python-dotenv==1.0.0
 ```
-
-
