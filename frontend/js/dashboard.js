@@ -6,10 +6,7 @@ let chartRevenueInstance = null;
 let chartAovInstance = null;
 
 // Base API URI (uses relative paths if served together, falls back to port 5000)
-const API_BASE = window.location.origin.includes('5000') 
-    ? '/api' 
-    : 'http://127.0.0.1:5000/api';
-
+const API_BASE = '/api';
 // Icon mapping for product categories
 const categoryIcons = {
     'Electronics': 'fa-laptop-code',
